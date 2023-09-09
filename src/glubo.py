@@ -51,9 +51,9 @@ def minimax(board, depth, alpha, beta, mark):
                     if score > bestscore:
                         bestscore = score
                         best_square = temp_board.squares[row][col]
-                    # alpha = max(alpha, score)
-                    # if beta <= alpha:
-                    #     break
+                    alpha = max(alpha, score)
+                    if beta <= alpha:
+                        break
         return bestscore , best_square
 
     else:
@@ -68,7 +68,7 @@ def minimax(board, depth, alpha, beta, mark):
                     if score < bestscore:
                         bestscore = score
                         best_square = temp_board.squares[row][col]
-                    # beta = max(beta, score)
-                    # if beta <= alpha:
-                    #     break
+                    beta = min(beta, score)
+                    if beta <= alpha:
+                        break
         return bestscore, best_square
